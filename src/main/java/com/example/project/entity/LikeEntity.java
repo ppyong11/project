@@ -12,16 +12,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Builder
-@Entity(name="user")
-@Table(name="user")
+@Entity(name="like")
+@Table(name="like")
 
-public class UserDto {
+public class LikeEntity {
     @Id
+    private Integer likeIdx;
+    private Integer boardIdx;
     private String userId;
-    private String pw;
-    private String name;
-    private String nickname;
-    private String email;
-    private String phoneNum;
-    private Boolean admin;
 }

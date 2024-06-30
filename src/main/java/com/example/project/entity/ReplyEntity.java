@@ -1,8 +1,6 @@
 package com.example.project.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +13,10 @@ import lombok.NoArgsConstructor;
 @Entity(name="reply")
 @Table(name="reply")
 
-public class ReplyDto {
+public class ReplyEntity {
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name= "reply_idx")
     private Integer replyIdx;
     private Integer boardIdx;
     private String writer;

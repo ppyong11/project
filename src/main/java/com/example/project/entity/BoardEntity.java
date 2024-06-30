@@ -1,12 +1,11 @@
 package com.example.project.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @AllArgsConstructor
 @Data
@@ -15,12 +14,18 @@ import lombok.NoArgsConstructor;
 @Entity(name="board")
 @Table(name="board")
 
-public class BoardDto {
+public class BoardEntity {
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name= "board_idx")
     private Integer boardIdx;
+    @Column(name= "nickname", length = 50)
     private String writer;
+    @Column(name= "id", length = 20)
     private String userId;
+    @Column(length = 30, nullable = false)
     private String title;
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
     private String reg_data;
     private Boolean notice;
